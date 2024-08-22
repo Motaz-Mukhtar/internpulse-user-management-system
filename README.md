@@ -11,8 +11,8 @@ The backend server provides the following API routes:
     {
         "_id": "5d1c7cad03a394508232451d",
         "username": "testing",
-        "createdAt": "2022-05-05T02:57:31Z",
-        "updatedAt": "2022-05-05T02:57:31Z"
+        "createdAt": "2024-08-22T11:20:10.791Z",
+        "updatedAt": "2024-08-22T11:20:10.791Z"
     }
 \
 
@@ -28,13 +28,17 @@ The backend server provides the following API routes:
     $ curl http://localhost:4000/api/user/5d1c7cad03a394508232451d
     {
         "_id": "5d1c7cad03a394508232451d",
-        "username": "testing"
+        "username": "testing",
+        "createdAt": "2024-08-22T11:20:10.791Z",
+        "updatedAt": "2024-08-22T11:20:10.792Z"
     }
 
     $ curl htp://loclahost:4000/api/user?username="testing"
     {
-        "_id": "5d1c7cad03a394508232451d",
-        "username": "testing"
+        "_id": "66c71eea82ce0424b84d1ab7",
+        "username": "test",
+        "createdAt": "2024-08-22T11:20:10.791Z",
+        "updatedAt": "2024-08-22T11:20:10.792Z"
     }
 \
 
@@ -45,16 +49,16 @@ The backend server provides the following API routes:
     {
         "_id": "5d1c7cad03a394508232451d",
         "username": "changed",
-        "createdAt": "2024-05-05T02:57:31Z",
-        "updatedAt": "2024-08-22T02:10:31Z" // current date
+        "createdAt": "2024-08-22T11:20:10.791Z",
+        "updatedAt": "2024-08-22T11:20:20.791Z" // current date
     }
 
     $ curl -X PUT http://localhost:4000/api/user/update?username=testing -H "Content-Type:application/json" -d "{"username": "changed"}"
     {
         "_id": "5d1c7cad03a394508232451d",
         "username": "changed",
-        "createdAt": "2024-05-05T02:57:31Z",
-        "updatedAt": "2024-08-22T02:10:31Z" // current date
+        "createdAt": "2024-08-22T11:20:10.791Z",
+        "updatedAt": "2024-08-22T11:20:20.791Z" // current date
     }
 \
 
@@ -64,8 +68,8 @@ The backend server provides the following API routes:
     {
         "_id": "5d1c7cad03a394508232451d",
         "username": "testing",
-        "createdAt": "2024-05-05T02:57:31Z",
-        "updatedAt": "2024-08-22T02:10:31Z" // current date
+        "createdAt": "2024-08-22T11:20:10.791Z",
+        "updatedAt": "2024-08-22T11:20:20.791Z"
     }
 
 
@@ -73,6 +77,6 @@ The backend server provides the following API routes:
     {
         "_id": "5d1c7cad03a394508232451d",
         "username": "testing",
-        "createdAt": "2024-05-05T02:57:31Z",
-        "updatedAt": "2024-08-22T02:10:31Z" // current date
+        "createdAt": "2024-08-22T11:20:10.791Z",
+        "updatedAt": "2024-08-22T11:20:20.791Z"
     }
