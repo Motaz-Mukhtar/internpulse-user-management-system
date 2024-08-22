@@ -1,23 +1,8 @@
 import { getReasonPhrase, StatusCodes } from 'http-status-codes';
 import { Types } from 'mongoose';
-import Users from '../models/userModel';
-import { handleError, handleSuccess } from '../utils/responseHandler';
 import User from '../models/userModel';
+import { handleError, handleSuccess } from '../utils/responseHandler';
 
-
-// {
-//     "status":"success",
-//     "statusCode":201,
-//     "message":"Created",
-//     "data":
-//         {
-//             "username":"test",
-//             "_id":"66c4792aa4c2aead3c38c948",
-//             "createdAt":"2024-08-20T11:08:26.513Z"
-//             ,"updatedAt":"2024-08-20T11:08:26.513Z",
-//             "__v":0
-//         }
-// }
 
 class UsersController {
     // curl -X POST localhost:4000/api/user/create -H "Content-Type:application/json" -d "{\"username\": \"test\"}"
@@ -68,18 +53,23 @@ class UsersController {
 
     static async getUser(req, res) {
         try {
-            console.log(req.params)
+            // Get data from req body
             const {
-                userInfo
+                userId
             } = req.params;
+            
+            // Get data from url query parameter
+            const username = req.query.username;
+
             let user;
 
-            // Check if the userInfo was ID, if true, get user by Id
+            // if userId exists get by userId
             // else get user by username
-            if (Types.ObjectId.isValid(userInfo)) {
-                user = await User.findById(userInfo);
+            if (userId) {
+                if (Types.ObjectId.isValid(userId))
+                    user = await User.findById(userId);
             } else {
-                user = await User.findOne({ username: userInfo });
+                user = await User.findOne({ username });
             }
 
             console.log(user);
@@ -108,24 +98,23 @@ class UsersController {
 
     static async updateUser(req, res) {
         try {
-            // Get data from url query parameter
-            const {
-                userInfo
-            } = req.params;
-
             // Get data from req body
             const {
-                username
-            } = req.body;
+                userId
+            } = req.params;
+            
+            // Get data from url query parameter
+            const username = req.query.username;
 
             let user;
 
-            // Check if the userInfo was ID, if true, get user by Id
+            // if userId exists get by userId
             // else get user by username
-            if (Types.ObjectId.isValid(userInfo)) {
-                user = await User.findById(userInfo);
+            if (userId) {
+                if (Types.ObjectId.isValid(userId))
+                    user = await User.findById(userId);
             } else {
-                user = await User.findOne({ username: userInfo });
+                user = await User.findOne({ username });
             }
 
             // If user not exist, return not found error (404);
@@ -159,17 +148,23 @@ class UsersController {
 
     static async deleteUser(req, res) {
         try {
+            // Get data from req body
             const {
-                userInfo
+                userId
             } = req.params;
+
+            // Get data from url query parameter
+            const username = req.query.username;
+
             let user;
 
-            // Check if the userInfo was ID, if true, get user by Id
+            // if userId exists get by userId
             // else get user by username
-            if (Types.ObjectId.isValid(userInfo)) {
-                user = await User.findById(userInfo);
+            if (userId) {
+                if (Types.ObjectId.isValid(userId))
+                    user = await User.findById(userId);
             } else {
-                user = await User.findOne({ username: userInfo });
+                user = await User.findOne({ username });
             }
 
             if (!user) {

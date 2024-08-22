@@ -37,7 +37,7 @@ describe('test user routes (endpoints)', () => {
     describe('GET /api/user/:usernameOr:userId', () => {
         let userId;
         it('Should return user data by username: /api/user/:username', () => {
-            fetch(`http://localhost:4000/api/user/${user.username}`)
+            fetch(`http://localhost:4000/api/user?username=${user.username}`)
             .then(response => {
                 expect(response.statusCode).to.equal(200);
 
@@ -70,7 +70,7 @@ describe('test user routes (endpoints)', () => {
         let userId;
 
         it('Should change user data by :username: /api/user/update/:username', () => {
-            fetch(`http://localhost:4000/api/user/update/${user.username}`, {
+            fetch(`http://localhost:4000/api/user/update?username=${user.username}`, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -146,7 +146,7 @@ describe('test user routes (endpoints)', () => {
         });
 
         it('Should delete user by username: /api/user/delete/:username', () => {
-            fetch(`http://localhost:4000/api/user/delete/${usernameToBeDeleted}`, { method: 'DELETE' })
+            fetch(`http://localhost:4000/api/user/delete?username=${usernameToBeDeleted}`, { method: 'DELETE' })
             .then( response => {
                 console.log(response);
 

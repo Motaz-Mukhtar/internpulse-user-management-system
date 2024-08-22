@@ -1,7 +1,6 @@
 {
   "name": "internpulse-user-management-system",
   "version": "1.0.0",
-  "type": "commonjs",
   "description": "Task 2 in Interpulse, creating User Management System",
   "main": "index.js",
   "scripts": {
