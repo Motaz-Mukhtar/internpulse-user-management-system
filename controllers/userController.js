@@ -3,6 +3,7 @@ import { Types } from 'mongoose';
 import User from '../models/userModel';
 import { handleError, handleSuccess } from '../utils/responseHandler';
 
+// {"status":"success","statusCode":201,"message":"Created","data":{"username":"test","_id":"66c71eea82ce0424b84d1ab7","createdAt":"2024-08-22T11:20:10.791Z","updatedAt":"2024-08-22T11:20:10.792Z","__v":0}}
 
 class UsersController {
     // curl -X POST localhost:4000/api/user/create -H "Content-Type:application/json" -d "{\"username\": \"test\"}"
